@@ -20,7 +20,7 @@ import poc.peaceland.Commons.schema.{DroneImage, PeaceWatcherReport}
 import java.io._
 import scala.util.Try
 
-class ReportConsumer(spark: SparkSession, kafkaConsumer: KafkaConsumer[String, String]) {
+class ReportConsumer(spark: SparkSession, kafkaConsumer: KafkaConsumer[String, String])  {
   import ReportConsumer._
 
   def run(): Unit = {
@@ -159,14 +159,15 @@ object ReportConsumer extends AppConfig {
   val KAFKA_FILES_CONSUMER_POLL_DURATION_MUNITES: Int = conf.getInt("consumer_message.kafka.consumers.kafka_files_consumers_poll_duration_minutes")
   val KAFKA_FILE_CONSUMERS_GROUP_ID_PREFIX: String = "-group"
 
-  val BATCH_SIZE_FOR_FILE_WRITING_WITH_SPARK: Int = conf.getInt("consumer_message.kafka.consumers.spark_writing_batch_size")
+  val  BATCH_SIZE_FOR_FILE_WRITING_WITH_SPARK: Int = conf.getInt("consumer_message.kafka.consumers.spark_writing_batch_size")
   val HDFS_TARGET_DIR: String = conf.getString("consumer_message.hdfs_files.target_directory")
 
-  val NB_DEFAULT_SPARK_PARTITIONS: Int = conf.getInt("consumer_message.spark.default_partitions")
+  val  NB_DEFAULT_SPARK_PARTITIONS: Int =  conf.getInt("consumer_message.spark.default_partitions")
 
 
 
   val WRITING_NORMAL_FILE_FORMAT: String = conf.getString("consumer_message.hdfs_files.normal_file_format")
+
   val WRITING_ALERT_FILE_FORMAT: String = conf.getString("consumer_message.hdfs_files.alert_file_format")
   val TARGET_NORMAL_FILE_NAME: String = conf.getString("consumer_message.hdfs_files.normal_file_name")
   val HDFS_NORMAL_TARGET_DIR: String = conf.getString("consumer_message.hdfs_files.normal_target_dir")
