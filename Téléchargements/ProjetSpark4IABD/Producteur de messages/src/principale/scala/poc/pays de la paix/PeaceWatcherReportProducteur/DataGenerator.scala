@@ -43,18 +43,7 @@ object DataGenerator {
     Some(droneIDGenerator())
   }
 
-  def imageIDGenerator(): String = {
-    val start: Int = 1
-    val end: Int = 999999999
-    String.valueOf(start + Random.nextInt(end - start))
-  }
-
-  def optViolationCode(): Option[String] = {
-    val start: Int = 1
-    val end: Int = 500
-    Some(String.valueOf(start + Random.nextInt(end - start)))
-  }
-
+ 
   def surroundingGenerator(start: Int, end: Int): (String, Int) = {
     val rnd = new scala.util.Random
     val scoreIndex = start + rnd.nextInt((end - start) + 1)
